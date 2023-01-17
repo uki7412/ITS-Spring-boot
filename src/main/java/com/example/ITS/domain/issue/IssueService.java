@@ -18,4 +18,8 @@ public class IssueService { //IssueRepositoryのインスタンスがインジ�
     public void create(String summary, String description) {
         issueRepository.insert(summary, description);
     }
+
+    public IssueEntity findById(long issueId) {
+        return issueRepository.findById(issueId);
+    }
 }

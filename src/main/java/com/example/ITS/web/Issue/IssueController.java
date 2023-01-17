@@ -7,10 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -33,10 +30,17 @@ public class IssueController {
 
     @PostMapping
     public String create(@Validated @ModelAttribute IssueForm form, BindingResult bindingResult, Model model) {
+        System.out.println(bindingResult);
         if (bindingResult.hasErrors()) {
             return showCreationForm(form);
         }
         issueService.create(form.getSummary(), form.getDescription());
         return "redirect:/issues";
+    }
+
+    @GetMapping("/{issueId}")
+    public String showDetail(@PathVariable("issueId") long issueId, Model model) {
+        model.addAttribute("issue", issueService.findById(issueId));
+        return "issues/detail";
     }
 }
