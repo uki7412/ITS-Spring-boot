@@ -16,5 +16,5 @@ public interface IssueRepository {//これを後でIssueServiceにインジェ�
     void insert(@Param("summary")String summary, @Param("description")String description);
 
     @Select("select * from issues where id = #{issueId}")
-    IssueEntity findById(long issueId);
+    IssueEntity findById(long issueId);//←このissueIdを↑に埋め込むために#{}という記法をしている１１￥q」
 }

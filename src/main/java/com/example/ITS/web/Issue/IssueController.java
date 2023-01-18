@@ -38,7 +38,7 @@ public class IssueController {
         return "redirect:/issues";
     }
 
-    @GetMapping("/{issueId}")
+    @GetMapping("/{issueId}")//動的に変化する時、中括弧で囲う。@RequestMapping("/issues")でisuuesは略
     public String showDetail(@PathVariable("issueId") long issueId, Model model) {
         model.addAttribute("issue", issueService.findById(issueId));
         return "issues/detail";
