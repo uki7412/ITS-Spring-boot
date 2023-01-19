@@ -30,6 +30,7 @@ public class IssueController {
 
     @PostMapping
     public String create(@Validated @ModelAttribute IssueForm form, BindingResult bindingResult, Model model) {
+        System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
         System.out.println(bindingResult);
         if (bindingResult.hasErrors()) {
             return showCreationForm(form);
