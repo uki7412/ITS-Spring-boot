@@ -1,7 +1,7 @@
 package com.example.ITS.web.Issue;
 
 
-import lombok.Data;
+import lombok.Data;//このロンボックはゲッターセッターなど。コンストラクタは→　import lombok.AllArgsConstructor;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
